@@ -9,7 +9,8 @@ import { createSpinner } from "nanospinner";
 
 console.log(chalk.bgCyan("hello world"));
 
-await askName();
+// await askName();
+await winner();
 
 async function askName() {
   let playerName;
@@ -22,4 +23,12 @@ async function askName() {
     },
   });
   playerName = name.playerName;
+}
+
+function winner() {
+  console.clear();
+  const msg = `Well done. You made it!!`;
+  figlet(msg, (err, data) => {
+    console.log(gradient.pastel.multiline(data));
+  });
 }
