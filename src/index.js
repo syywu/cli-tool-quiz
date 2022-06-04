@@ -8,9 +8,16 @@ import inquirer from "inquirer";
 import { createSpinner } from "nanospinner";
 
 console.log(chalk.bgCyan("hello world"));
-
-// await askName();
+await welcome();
+await askName();
 await winner();
+
+function welcome() {
+  const msg = `Welcome to this quiz!!`;
+  figlet(msg, (err, data) => {
+    console.log(gradient.pastel.multiline(data));
+  });
+}
 
 async function askName() {
   let playerName;
