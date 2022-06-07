@@ -8,16 +8,15 @@ import inquirer from "inquirer";
 import { createSpinner } from "nanospinner";
 
 console.log(chalk.bgCyan("hello world"));
-await welcome();
 await askName();
-await winner();
+// await winner();
 
-function welcome() {
-  const msg = `Welcome to this quiz!!`;
-  figlet(msg, (err, data) => {
-    console.log(gradient.pastel.multiline(data));
-  });
-}
+// function welcome() {
+//   const msg = `Welcome to this quiz!!`;
+//   figlet(msg, (err, data) => {
+//     console.log(gradient.pastel.multiline(data));
+//   });
+// }
 
 async function askName() {
   let playerName;
@@ -25,17 +24,14 @@ async function askName() {
     name: "playerName",
     type: "input",
     message: "What's your name?",
-    default() {
-      return "Player";
-    },
   });
   playerName = name.playerName;
 }
 
-function winner() {
-  console.clear();
-  const msg = `Well done. You made it!!`;
-  figlet(msg, (err, data) => {
-    console.log(gradient.pastel.multiline(data));
-  });
-}
+// function winner() {
+//   console.clear();
+//   const msg = `Well done. You made it!!`;
+//   figlet(msg, (err, data) => {
+//     console.log(gradient.pastel.multiline(data));
+//   });
+// }
