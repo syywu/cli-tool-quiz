@@ -9,6 +9,7 @@ import { createSpinner } from "nanospinner";
 
 console.log(chalk.bgCyan("hello world"));
 await askName();
+await questionOne();
 // await winner();
 
 // function welcome() {
@@ -26,6 +27,16 @@ async function askName() {
     message: "What's your name?",
   });
   playerName = name.playerName;
+}
+
+async function questionOne() {
+  await inquirer.prompt({
+    name: "Q1",
+    type: "list",
+    message: `What is the rarest M&M color?\n`,
+    choices: ["red", "green", "brown", "pink"],
+  });
+  return answers.questionOne == "brown";
 }
 
 // function winner() {
