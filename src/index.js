@@ -136,10 +136,10 @@ async function questionTen() {
   const answers = await inquirer.prompt({
     name: "Q10",
     type: "list",
-    message: `Carrots are a good source of which vitamin?\n`,
-    choices: ["vitamin A", "vitamin B12", "vitamin C", "vitamin D"],
+    message: "What was the name of Chandler’s psycho roommate?\n",
+    choices: ["Freddie", "Eddie", "Edward", "Frank"],
   });
-  return isCorrect(answers.Q10 === "vitamin A");
+  return isCorrect(answers.Q10 === "Eddie");
 }
 
 // function winner() {
