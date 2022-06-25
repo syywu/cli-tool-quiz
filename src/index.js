@@ -17,6 +17,7 @@ await questionFour();
 await questionFive();
 await questionSix();
 await questionSeven();
+await questionEight();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -108,6 +109,16 @@ async function questionSeven() {
     choices: ["rap", "pop", "blues", "classical"],
   });
   return isCorrect(answers.Q7 === "classical");
+}
+
+async function questionEight() {
+  const answers = await inquirer.prompt({
+    name: "Q8",
+    type: "list",
+    message: `Carrots are a good source of which vitamin?\n`,
+    choices: ["vitamin A", "vitamin B12", "vitamin C", "vitamin D"],
+  });
+  return isCorrect(answers.Q8 === "vitamin A");
 }
 
 //  Venus is the only planet to spin clockwise
