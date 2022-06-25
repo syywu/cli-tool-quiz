@@ -11,6 +11,7 @@ let playerName;
 console.log(chalk.bgCyan("hello world"));
 await askName();
 await questionOne();
+await questionTwo();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -44,6 +45,16 @@ async function questionOne() {
     choices: ["red", "green", "brown", "pink"],
   });
   return isCorrect(answers.Q1 === "brown");
+}
+
+async function questionTwo() {
+  const answers = await inquirer.prompt({
+    name: "Q2",
+    type: "list",
+    message: `According to Greek mythology, who was the first woman on earth?\n`,
+    choices: ["Athena", "Pandora", "Hera", "Angelia"],
+  });
+  return isCorrect(answers.Q2 === "Pandora");
 }
 
 // function winner() {
