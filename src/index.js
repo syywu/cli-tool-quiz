@@ -9,15 +9,15 @@ import { createSpinner } from "nanospinner";
 let playerName;
 console.log(chalk.bgCyan("Hello World"));
 await askName();
-await questionOne();
-await questionTwo();
-await questionThree();
-await questionFour();
-await questionFive();
-await questionSix();
-await questionSeven();
-await questionEight();
-await questionNine();
+// await questionOne();
+// await questionTwo();
+// await questionThree();
+// await questionFour();
+// await questionFive();
+// await questionSix();
+// await questionSeven();
+// await questionEight();
+// await questionNine();
 await questionTen();
 endGame();
 
@@ -151,7 +151,7 @@ function endGame() {
   const msg = `Congrats ${playerName}!\n
    You're a F.R.I.E.N.D.S fanatic!!`;
   figlet(msg, (err, data) => {
-    console.log(gradient.pastel.multiline(data));
+    console.log(gradient.summer.multiline(data));
     process.exit(0);
   });
 }
