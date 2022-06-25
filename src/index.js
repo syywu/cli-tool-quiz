@@ -18,6 +18,7 @@ await questionFive();
 await questionSix();
 await questionSeven();
 await questionEight();
+await questionNine();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -95,7 +96,7 @@ async function questionFive() {
 async function questionSix() {
   const answers = await inquirer.prompt({
     name: "Q6",
-    type: "list",
+    type: "confirm",
     message: `Was Neil Armstrong the first man to travel into space?`,
   });
   return isCorrect(answers.Q6 === false);
@@ -121,7 +122,14 @@ async function questionEight() {
   return isCorrect(answers.Q8 === "vitamin A");
 }
 
-//  Venus is the only planet to spin clockwise
+async function questionNine() {
+  const answers = await inquirer.prompt({
+    name: "Q9",
+    type: "confirm",
+    message: `Is Venus the only planet to spin clockwise?`,
+  });
+  return isCorrect(answers.Q9 === true);
+}
 
 // function winner() {
 //   console.clear();
