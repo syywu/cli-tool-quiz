@@ -107,7 +107,7 @@ async function questionSeven() {
   const answers = await inquirer.prompt({
     name: "Q7",
     type: "list",
-    message: `What genre of music has been shown to help plants grow better and faster?\n`,
+    message: `Which of these is not one of the Green sisters?\n`,
     choices: ["rap", "pop", "blues", "classical"],
   });
   return isCorrect(answers.Q7 === "classical");
@@ -127,7 +127,7 @@ async function questionNine() {
   const answers = await inquirer.prompt({
     name: "Q9",
     type: "confirm",
-    message: `Is Venus the only planet to spin clockwise?`,
+    message: `Is Jill Green one of the Green sisters?`,
   });
   return isCorrect(answers.Q9 === true);
 }
