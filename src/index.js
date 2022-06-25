@@ -19,7 +19,7 @@ await questionSeven();
 await questionEight();
 await questionNine();
 await questionTen();
-await winner();
+await endGame();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -107,10 +107,15 @@ async function questionSeven() {
   const answers = await inquirer.prompt({
     name: "Q7",
     type: "list",
-    message: `Which of these is not one of the Green sisters?\n`,
-    choices: ["rap", "pop", "blues", "classical"],
+    message: `Who did Phoebe think her grandfather was?\n`,
+    choices: [
+      "Stephen Hawkins",
+      "Issac Newton",
+      "Albert Einstein",
+      "Nikola Tesla",
+    ],
   });
-  return isCorrect(answers.Q7 === "classical");
+  return isCorrect(answers.Q7 === "Albert Einstein");
 }
 
 async function questionEight() {
@@ -142,7 +147,7 @@ async function questionTen() {
   return isCorrect(answers.Q10 === "Eddie");
 }
 
-async function winner() {
+async function endGame() {
   console.clear();
   const msg = `Congrats ${playerName}! You're a F.R.I.E.N.D.S fanatic!!`;
   figlet(msg, (err, data) => {
