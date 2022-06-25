@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import chalk from "chalk";
-import chalkAnimation from "chalk-animation";
 import figlet from "figlet";
 import gradient from "gradient-string";
 import inquirer from "inquirer";
@@ -20,6 +19,7 @@ await questionSeven();
 await questionEight();
 await questionNine();
 await questionTen();
+await winner();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -142,10 +142,11 @@ async function questionTen() {
   return isCorrect(answers.Q10 === "Eddie");
 }
 
-// function winner() {
-//   console.clear();
-//   const msg = `Well done. You made it!!`;
-//   figlet(msg, (err, data) => {
-//     console.log(gradient.pastel.multiline(data));
-//   });
-// }
+async function winner() {
+  console.clear();
+  const msg = `Congrats ${playerName}! You're a F.R.I.E.N.D.S fanatic!!`;
+  figlet(msg, (err, data) => {
+    console.log(gradient.pastel.multiline(data));
+  });
+  process.exit(0);
+}
