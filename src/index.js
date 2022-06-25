@@ -117,10 +117,10 @@ async function questionEight() {
   const answers = await inquirer.prompt({
     name: "Q8",
     type: "list",
-    message: `Carrots are a good source of which vitamin?\n`,
-    choices: ["vitamin A", "vitamin B12", "vitamin C", "vitamin D"],
+    message: `What is the name of Joey's BarcaLounger?\n`,
+    choices: ["Rosita", "Sofia", "Marita", "Rosalia"],
   });
-  return isCorrect(answers.Q8 === "vitamin A");
+  return isCorrect(answers.Q8 === "Rosita");
 }
 
 async function questionNine() {
