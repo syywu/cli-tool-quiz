@@ -108,7 +108,7 @@ async function questionSeven() {
     type: "list",
     message: `Who did Phoebe think her grandfather was?\n`,
     choices: [
-      "Stephen Hawkins",
+      "Stephen Hawking",
       "Issac Newton",
       "Albert Einstein",
       "Nikola Tesla",
