@@ -19,6 +19,7 @@ await questionSix();
 await questionSeven();
 await questionEight();
 await questionNine();
+await questionTen();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -129,6 +130,16 @@ async function questionNine() {
     message: `Is Venus the only planet to spin clockwise?`,
   });
   return isCorrect(answers.Q9 === true);
+}
+
+async function questionTen() {
+  const answers = await inquirer.prompt({
+    name: "Q10",
+    type: "list",
+    message: `Carrots are a good source of which vitamin?\n`,
+    choices: ["vitamin A", "vitamin B12", "vitamin C", "vitamin D"],
+  });
+  return isCorrect(answers.Q10 === "vitamin A");
 }
 
 // function winner() {
