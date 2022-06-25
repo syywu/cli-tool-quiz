@@ -15,6 +15,7 @@ await questionTwo();
 await questionThree();
 await questionFour();
 await questionFive();
+await questionSix();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -89,7 +90,16 @@ async function questionFive() {
   return isCorrect(answers.Q5 === "patella");
 }
 
-// Neil Armstrong was the first man to travel into space
+async function questionSix() {
+  const answers = await inquirer.prompt({
+    name: "Q6",
+    type: "list",
+    message: `Was Neil Armstrong the first man to travel into space?`,
+  });
+  return isCorrect(answers.Q6 === false);
+}
+
+//
 //  Venus is the only planet to spin clockwise
 
 // function winner() {
