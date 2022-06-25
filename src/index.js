@@ -14,6 +14,7 @@ await questionOne();
 await questionTwo();
 await questionThree();
 await questionFour();
+await questionFive();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -77,6 +78,19 @@ async function questionFour() {
   });
   return isCorrect(answers.Q4 === false);
 }
+
+async function questionFive() {
+  const answers = await inquirer.prompt({
+    name: "Q5",
+    type: "list",
+    message: `Which bone are babies born without?\n`,
+    choices: ["patella", "clavicle", "coccyx", "sacrum"],
+  });
+  return isCorrect(answers.Q5 === "patella");
+}
+
+// Neil Armstrong was the first man to travel into space
+//  Venus is the only planet to spin clockwise
 
 // function winner() {
 //   console.clear();
