@@ -13,6 +13,7 @@ await askName();
 await questionOne();
 await questionTwo();
 await questionThree();
+await questionFour();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -66,6 +67,15 @@ async function questionThree() {
     choices: ["Brazil", "Argentina", "Italy", "Uruguay"],
   });
   return isCorrect(answers.Q3 === "Uruguay");
+}
+
+async function questionFour() {
+  const answers = await inquirer.prompt({
+    name: "Q4",
+    type: "confirm",
+    message: `Is ice denser than water?`,
+  });
+  return isCorrect(answers.Q4 === false);
 }
 
 // function winner() {
