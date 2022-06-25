@@ -8,10 +8,11 @@ import inquirer from "inquirer";
 import { createSpinner } from "nanospinner";
 
 let playerName;
-console.log(chalk.bgCyan("hello world"));
+console.log(chalk.bgCyan("Hello World"));
 await askName();
 await questionOne();
 await questionTwo();
+await questionThree();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -55,6 +56,16 @@ async function questionTwo() {
     choices: ["Athena", "Pandora", "Hera", "Angelia"],
   });
   return isCorrect(answers.Q2 === "Pandora");
+}
+
+async function questionThree() {
+  const answers = await inquirer.prompt({
+    name: "Q3",
+    type: "list",
+    message: `What country won the very first FIFA World Cup in 1930?\n`,
+    choices: ["Brazil", "Argentina", "Italy", "Uruguay"],
+  });
+  return isCorrect(answers.Q3 === "Uruguay");
 }
 
 // function winner() {
