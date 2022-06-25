@@ -18,6 +18,9 @@ await questionOne();
 //     console.log(gradient.pastel.multiline(data));
 //   });
 // }
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 async function askName() {
   let playerName;
@@ -36,7 +39,7 @@ async function questionOne() {
     message: `What is the rarest M&M color?\n`,
     choices: ["red", "green", "brown", "pink"],
   });
-  return answers.questionOne == "brown";
+  return isCorrect(answers.questionOne == "brown");
 }
 
 // function winner() {
