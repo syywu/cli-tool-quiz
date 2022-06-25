@@ -16,6 +16,7 @@ await questionThree();
 await questionFour();
 await questionFive();
 await questionSix();
+await questionSeven();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -99,7 +100,16 @@ async function questionSix() {
   return isCorrect(answers.Q6 === false);
 }
 
-//
+async function questionSeven() {
+  const answers = await inquirer.prompt({
+    name: "Q7",
+    type: "list",
+    message: `What genre of music has been shown to help plants grow better and faster?\n`,
+    choices: ["rap", "pop", "blues", "classical"],
+  });
+  return isCorrect(answers.Q7 === "classical");
+}
+
 //  Venus is the only planet to spin clockwise
 
 // function winner() {
