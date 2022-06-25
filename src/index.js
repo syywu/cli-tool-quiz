@@ -150,7 +150,7 @@ function endGame() {
   console.clear();
   const msg = `Congrats ${playerName}!\n
    You're a F.R.I.E.N.D.S fanatic!!`;
-  figlet(msg, (err, data) => {
+  figlet(msg, (data) => {
     console.log(gradient.summer.multiline(data));
     process.exit(0);
   });
