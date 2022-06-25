@@ -7,23 +7,27 @@ import gradient from "gradient-string";
 import inquirer from "inquirer";
 import { createSpinner } from "nanospinner";
 
+let playerName;
 console.log(chalk.bgCyan("hello world"));
 await askName();
 await questionOne();
-// await winner();
 
-// function welcome() {
-//   const msg = `Welcome to this quiz!!`;
-//   figlet(msg, (err, data) => {
-//     console.log(gradient.pastel.multiline(data));
-//   });
-// }
-function sleep(ms) {
+async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+async function isCorrect(correctAns) {
+  const spinner = createSpinner("Loading").start();
+  await sleep(2000);
+  if (correctAns) {
+    spinner.success({ text: `That's correct, ${playerName}` });
+  } else {
+    spinner.error({ text: `Wrong answer!!!` });
+    process.exit(1);
+  }
+}
+
 async function askName() {
-  let playerName;
   const name = await inquirer.prompt({
     name: "playerName",
     type: "input",
@@ -33,13 +37,13 @@ async function askName() {
 }
 
 async function questionOne() {
-  await inquirer.prompt({
+  const answers = await inquirer.prompt({
     name: "Q1",
     type: "list",
     message: `What is the rarest M&M color?\n`,
     choices: ["red", "green", "brown", "pink"],
   });
-  return isCorrect(answers.questionOne == "brown");
+  return isCorrect(answers.Q1 === "brown");
 }
 
 // function winner() {
