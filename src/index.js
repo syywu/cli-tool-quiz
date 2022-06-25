@@ -19,7 +19,7 @@ await questionSeven();
 await questionEight();
 await questionNine();
 await questionTen();
-await endGame();
+endGame();
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -27,7 +27,7 @@ async function sleep(ms) {
 
 async function isCorrect(correctAns) {
   const spinner = createSpinner("Loading").start();
-  await sleep(2000);
+  await sleep(1000);
   if (correctAns) {
     spinner.success({ text: `That's correct, ${playerName}` });
   } else {
@@ -48,38 +48,37 @@ async function askName() {
 async function questionOne() {
   const answers = await inquirer.prompt({
     name: "Q1",
-    type: "list",
-    message: `What is the rarest M&M color?\n`,
-    choices: ["red", "green", "brown", "pink"],
+    type: "confirm",
+    message: `Joey has 7 sisters.`,
   });
-  return isCorrect(answers.Q1 === "brown");
+  return isCorrect(answers.Q1 === true);
 }
 
 async function questionTwo() {
   const answers = await inquirer.prompt({
     name: "Q2",
     type: "list",
-    message: `According to Greek mythology, who was the first woman on earth?\n`,
-    choices: ["Athena", "Pandora", "Hera", "Angelia"],
+    message: `Who was Monica and Rachel's grumpy downstairs neighbour??\n`,
+    choices: ["Mr. Freckels", "Mr. Heckles", "Mr. Finkles", "Mr. Hinkles"],
   });
-  return isCorrect(answers.Q2 === "Pandora");
+  return isCorrect(answers.Q2 === "Mr. Heckles");
 }
 
 async function questionThree() {
   const answers = await inquirer.prompt({
     name: "Q3",
     type: "list",
-    message: `What country won the very first FIFA World Cup in 1930?\n`,
-    choices: ["Brazil", "Argentina", "Italy", "Uruguay"],
+    message: `Which wedding gift made Rachel walk out on Barry?\n`,
+    choices: ["Curtains", "A gold plate", "Bed linens", "A gravy boat"],
   });
-  return isCorrect(answers.Q3 === "Uruguay");
+  return isCorrect(answers.Q3 === "A gravy boat");
 }
 
 async function questionFour() {
   const answers = await inquirer.prompt({
     name: "Q4",
     type: "confirm",
-    message: `Is ice denser than water?`,
+    message: `Was Chandler's address in Yemen, 15 Yemen Road, Yemen?`,
   });
   return isCorrect(answers.Q4 === false);
 }
@@ -88,17 +87,17 @@ async function questionFive() {
   const answers = await inquirer.prompt({
     name: "Q5",
     type: "list",
-    message: `Which bone are babies born without?\n`,
-    choices: ["patella", "clavicle", "coccyx", "sacrum"],
+    message: `Which of these characters was always played by the same actor/actress?\n`,
+    choices: ["Carol", "Susan", "Ben", "Mindy"],
   });
-  return isCorrect(answers.Q5 === "patella");
+  return isCorrect(answers.Q5 === "Susan");
 }
 
 async function questionSix() {
   const answers = await inquirer.prompt({
     name: "Q6",
     type: "confirm",
-    message: `Was Neil Armstrong the first man to travel into space?`,
+    message: `Phoebe gets a soccer ball phone as a gift from her bank.`,
   });
   return isCorrect(answers.Q6 === false);
 }
@@ -147,11 +146,12 @@ async function questionTen() {
   return isCorrect(answers.Q10 === "Eddie");
 }
 
-async function endGame() {
+function endGame() {
   console.clear();
-  const msg = `Congrats ${playerName}! You're a F.R.I.E.N.D.S fanatic!!`;
+  const msg = `Congrats ${playerName}!\n
+   You're a F.R.I.E.N.D.S fanatic!!`;
   figlet(msg, (err, data) => {
     console.log(gradient.pastel.multiline(data));
+    process.exit(0);
   });
-  process.exit(0);
 }
