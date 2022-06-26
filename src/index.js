@@ -1,11 +1,9 @@
-import chalk from "chalk";
 import figlet from "figlet";
 import gradient from "gradient-string";
 import inquirer from "inquirer";
 import { createSpinner } from "nanospinner";
 
 let playerName;
-console.log(chalk.bgCyan("Hello World"));
 await askName();
 await questionOne();
 await questionTwo();
@@ -146,10 +144,12 @@ async function questionTen() {
 
 function endGame() {
   console.clear();
-  const msg = `Congrats ${playerName}!\n
-   You're a F.R.I.E.N.D.S fanatic!!`;
-  figlet(msg, (err, data) => {
-    console.log(gradient.summer.multiline(data));
-    process.exit(0);
-  });
+  figlet(
+    `Congrats ${playerName}!\n
+  You're a F.R.I.E.N.D.S fanatic!!`,
+    (err, data) => {
+      console.log(gradient.summer.multiline(data));
+      process.exit(0);
+    }
+  );
 }
