@@ -51,7 +51,7 @@ async function questionOne() {
     type: "confirm",
     message: `Joey has 7 sisters.`,
   });
-  return isCorrect(answers.Q1 === true);
+  return isCorrect(answers.Q1);
 }
 
 async function questionTwo() {
@@ -80,7 +80,7 @@ async function questionFour() {
     type: "confirm",
     message: `Was Chandler's address in Yemen, 15 Yemen Road, Yemen?`,
   });
-  return isCorrect(answers.Q4 === false);
+  return isCorrect(!answers.Q4);
 }
 
 async function questionFive() {
@@ -99,7 +99,7 @@ async function questionSix() {
     type: "confirm",
     message: `Phoebe gets a soccer ball phone as a gift from her bank.`,
   });
-  return isCorrect(answers.Q6 === false);
+  return isCorrect(!answers.Q6);
 }
 
 async function questionSeven() {
@@ -133,7 +133,7 @@ async function questionNine() {
     type: "confirm",
     message: `Is Jill Green one of the Green sisters?`,
   });
-  return isCorrect(answers.Q9 === true);
+  return isCorrect(answers.Q9);
 }
 
 async function questionTen() {
