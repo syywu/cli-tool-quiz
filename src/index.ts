@@ -3,7 +3,7 @@ import gradient from "gradient-string";
 import inquirer from "inquirer";
 import { createSpinner } from "nanospinner";
 
-let playerName;
+let playerName: string;
 await askName();
 await questionOne();
 await questionTwo();
@@ -17,11 +17,11 @@ await questionNine();
 await questionTen();
 endGame();
 
-async function sleep(ms) {
+async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function isCorrect(correctAns) {
+async function isCorrect(correctAns: string | boolean) {
   const spinner = createSpinner("Loading").start();
   await sleep(1000);
   if (correctAns) {
@@ -147,7 +147,7 @@ function endGame() {
   figlet(
     `Congrats ${playerName}!\n
   You're a F.R.I.E.N.D.S fanatic!!`,
-    (err, data) => {
+    (err: any, data: any) => {
       console.log(gradient.summer.multiline(data));
       process.exit(0);
     }
