@@ -17,11 +17,11 @@ await questionNine();
 await questionTen();
 endGame();
 
-async function sleep(ms: number) {
+async function sleep(ms: number): Promise<number> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function isCorrect(correctAns: string | boolean) {
+async function isCorrect(correctAns: string | boolean): Promise<void> {
   const spinner = createSpinner("Loading").start();
   await sleep(1000);
   if (correctAns) {
@@ -32,7 +32,7 @@ async function isCorrect(correctAns: string | boolean) {
   }
 }
 
-async function askName() {
+async function askName(): Promise<void> {
   const name = await inquirer.prompt({
     name: "playerName",
     type: "input",
@@ -41,7 +41,7 @@ async function askName() {
   playerName = name.playerName;
 }
 
-async function questionOne() {
+async function questionOne(): Promise<void> {
   const answers = await inquirer.prompt({
     name: "Q1",
     type: "confirm",
@@ -50,7 +50,7 @@ async function questionOne() {
   return isCorrect(answers.Q1);
 }
 
-async function questionTwo() {
+async function questionTwo(): Promise<void> {
   const answers = await inquirer.prompt({
     name: "Q2",
     type: "list",
@@ -60,7 +60,7 @@ async function questionTwo() {
   return isCorrect(answers.Q2 === "Mr. Heckles");
 }
 
-async function questionThree() {
+async function questionThree(): Promise<void> {
   const answers = await inquirer.prompt({
     name: "Q3",
     type: "list",
@@ -70,7 +70,7 @@ async function questionThree() {
   return isCorrect(answers.Q3 === "A gravy boat");
 }
 
-async function questionFour() {
+async function questionFour(): Promise<void> {
   const answers = await inquirer.prompt({
     name: "Q4",
     type: "confirm",
@@ -79,7 +79,7 @@ async function questionFour() {
   return isCorrect(!answers.Q4);
 }
 
-async function questionFive() {
+async function questionFive(): Promise<void> {
   const answers = await inquirer.prompt({
     name: "Q5",
     type: "list",
@@ -89,7 +89,7 @@ async function questionFive() {
   return isCorrect(answers.Q5 === "Susan");
 }
 
-async function questionSix() {
+async function questionSix(): Promise<void> {
   const answers = await inquirer.prompt({
     name: "Q6",
     type: "confirm",
@@ -98,7 +98,7 @@ async function questionSix() {
   return isCorrect(!answers.Q6);
 }
 
-async function questionSeven() {
+async function questionSeven(): Promise<void> {
   const answers = await inquirer.prompt({
     name: "Q7",
     type: "list",
@@ -113,7 +113,7 @@ async function questionSeven() {
   return isCorrect(answers.Q7 === "Albert Einstein");
 }
 
-async function questionEight() {
+async function questionEight(): Promise<void> {
   const answers = await inquirer.prompt({
     name: "Q8",
     type: "list",
@@ -123,7 +123,7 @@ async function questionEight() {
   return isCorrect(answers.Q8 === "Rosita");
 }
 
-async function questionNine() {
+async function questionNine(): Promise<void> {
   const answers = await inquirer.prompt({
     name: "Q9",
     type: "confirm",
@@ -132,7 +132,7 @@ async function questionNine() {
   return isCorrect(answers.Q9);
 }
 
-async function questionTen() {
+async function questionTen(): Promise<void> {
   const answers = await inquirer.prompt({
     name: "Q10",
     type: "list",
@@ -142,12 +142,12 @@ async function questionTen() {
   return isCorrect(answers.Q10 === "Eddie");
 }
 
-function endGame() {
+function endGame(): void {
   console.clear();
   figlet(
     `Congrats ${playerName}!\n
   You're a F.R.I.E.N.D.S fanatic!!`,
-    (err: any, data: any) => {
+    (err, data) => {
       console.log(gradient.summer.multiline(data));
       process.exit(0);
     }
